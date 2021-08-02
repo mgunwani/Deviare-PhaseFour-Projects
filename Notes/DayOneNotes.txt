@@ -1,0 +1,95 @@
+
+Phase 4: Angular and Node Unit Testing Applications
+
+	ng new angular-testing
+	cd angular-testing
+	ng serve
+	
+	Error: Cannot find module '@angular-devkit/build-angular/package.json'
+	
+	npm install --only=dev
+	ng serve
+	
+----------------------------------------------------
+
+Unit Testing in Angular:
+
+Unit Testing:
+
+	This testing is also known as Isolation Testing because this test small isolated peice of code. If you test uses some external resouces like network, file-system or endpoints then it is unit testing.
+
+Functional Testing:	
+
+	This is defined as the testing of the complete functionality of an application. Such as interacting with your application as it is running on browser just like a user would interact with it in real life such as click on a page, select a drop down, submit the form and so on. This testing is also known as e2e or End-to-End Testing.
+	
+------------------------------------------------------
+
+Jasmine & Karma:
+
+	Jasmine is a unit-testing framework.
+	Karma is the test-runner that helps in running unit tests on browser.
+	
+	npm run test 
+	ng test
+	
+-------------------------------------------------------
+
+Jasmine:
+
+	A JavaScript Testing Framework that supports a software development practice called BDD (Behavioural-Driven Development.
+	
+	In BDD, attempts to describe tests in a human readable format so that non-technical people can understand what is being tested.
+	
+Scenerio:	
+	
+	Calculation Component
+		- Message String
+		- Addition Method
+			- Case 1: Adding Two Positive Numbers
+			- Case 2: Adding Two Negative Numbers
+			- Case 3: Adding First Positive and Second Negative Number
+			- Case 4: Adding First Negative and Second Positive Number
+	
+Unit Testing Structure:	
+	
+	// Test Group
+	describe('Calculation Component', () => {
+		// Test Cases
+		it('Test Message String', () => { })
+		// Test Cases
+		describe('Test Addition Method' , () => {
+			// Test Cases
+			it('Adding Two Positive Numbers', () => { })
+			it('Adding Two Negative Numbers', () => { })
+			it('Adding First Positive and Second Negative Number', () => { })
+			it('Adding First Negative and Second Positive Number', () => { })
+		})
+	
+	})
+
+-------------------------------------------------------
+
+Setup and Teardown:
+
+	Sometimes in order to test a feature we need to perform some repeated steps such as initializing the objects, cleanup activities and so on.
+	
+	To perform such activities, Jasmine provides setup and teardown methods:
+	
+	beforeAll: This function is called once, before all the specs in test suite.
+	
+	afterAll: This function is called once, after all the specs in test suite.
+	
+	beforeEach: This function is called before each test specification.
+	
+	afterEach: This function is called before each test specification.
+	
+-------------------------------------------------------
+	
+
+
+
+
+
+
+
+
