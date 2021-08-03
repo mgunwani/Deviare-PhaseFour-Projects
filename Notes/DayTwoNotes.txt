@@ -1,0 +1,16 @@
+
+ng generate service services/auth
+ng generate component login
+
+----------------------------------
+
+TestBed: The Angular TestBed (ATB)
+
+	ATB is a higher level Angular Testing Framework that allows us to easily test behaviours that depends on the Angular Framework.
+	
+Fixture:
+
+	A fixture is a wrapper for a component and its template.
+	
+
+	
