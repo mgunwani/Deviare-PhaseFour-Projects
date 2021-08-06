@@ -1,0 +1,191 @@
+
+Working with Docker: 
+
+	What is Docker?
+	Virtual Machines vs. Containers and Images
+	Architecture of Docker
+	Installing and Cofiguring Docker
+	Development Workflow
+	
+-------------------------------------------------------
+
+-- To install docker in compatible machine or OS:
+
+	https://docs.docker.com/get-docker/
+
+-- To check if docker is installed or not:
+
+	docker --version
+	
+-- To see detailed information about running docker:
+
+	docker version
+	
+--------------------------------------------------------
+
+What is Docker?
+
+	Docker is a platform for building, running and shipping applications.
+	Docker helps consistently build, run and ship applications.
+	Docker uses a client-server architecture.
+	
+	Application 1: Node (10.x) and Angular (7.x)
+	Application 2: Node (12.x) and Angular (12.x)
+	
+	Virtual Machine 1: Node (10.x) and Angular (7.x)
+	Virtual Machine 2: Node (12.x) and Angular (12.x)
+
+Kernel:
+
+	A kernel manages applications and hardware resource.
+	Every operating system has its own kernel or engine.
+	On Windows, we can run Windows and Linux Kernel Containers.
+	On Mac Machine, It has its own kernel, which is different from Windows and Linux.
+	
+HyperVisors:
+
+	VirtualBox, VWare, Hyper-V (Windows)
+	
+Virtual Machines vs. Containers:
+
+	Container is an isolated environment for running an application.
+	Virtual Machine is an abstraction of a machine. (Physical Machine)
+	
+Problem with Virtual Machines:
+
+	- Each Virtual Machine needs on full-blown OS.
+	- Slow to Start.
+	- Resource Intensive.
+	
+Containers:
+
+	- Allows running multiple apps in isolation.
+	- Are lightweight.
+	- Uses OS of the host.
+	- Start Quickly.
+	- Needs less hardware and software resources.
+	
+--------------------------------------------------------
+	
+-- To install docker in compatible machine or OS:
+
+	https://docs.docker.com/get-docker/
+
+-- To check if docker is installed or not:
+
+	docker --version
+	
+-- To see detailed information about running docker:
+
+	docker version
+	
+--------------------------------------------------------
+
+Docker Image:
+
+	An image contains an application needs to run:
+	
+	- A cut-down OS
+	- A runtime environment i.e. NodeJS, Java. .NET, PHP etc.
+	- Application Files
+	- Third-Party Libraries
+	- Environment Variables.
+	
+Once we have this image, we tell docker to start an container using this image.
+
+Container is a special process because it has its own file system which is 
+provided by images. So, our application gets loaded inside the container. This
+is how our application locally on deployed on machine.
+
+--------------------------------------------------------
+
+Working with Dummy App:
+
+-- Instructions to deploy this application:
+
+	- Start with OS
+	- Install NodeJS
+	- Copy All Application Files
+	- Set the Work Directory
+	- Run Command - node app.js
+	
+Dockerfile: A plain text document that consists the instructions that docker uses
+to package of the application an image.
+
+	FROM node:alpine
+	COPY . ./app
+	WORKDIR /app
+	CMD node app.js
+
+1. To create image of an application:
+
+	docker build -t dummy-app .
+	
+2. To see all the docker images:
+
+	docker images
+	
+3. Run the docker image:
+
+	docker run dummy-app
+
+--------------------------------------------------------
+
+Below are the steps to push or deploy image to docker hub:
+
+1. Log into https://hub.docker.com/
+	
+	username: anshuldhuryani 
+	password: **************
+	email: anshul.dhuryani@gmail.com
+
+2. Create a repository on Docker Hub:
+
+	name: dummy-app
+	
+3. Login to Docker Hub Account via command line:
+
+	docker login --username=anshuldhuryani
+	password: *****************
+	
+4. Verify docker image:
+
+	docker images
+	
+5. Tag docker image:
+
+	docker tag 248c9e88e954 anshuldhuryani/dummy-app:DummyApp
+	
+6. Verify Tagged Image:
+
+	docker images
+	
+7. Push Your image to the repository you created:
+	
+	docker image push anshuldhuryani/dummy-app:DummyApp
+
+--------------------------------------------------------
+
+Test your published image over https://labs.play-with-docker.com/:
+
+1. Create New Instance
+
+2. To goto full instance: alt + enter
+
+3. To verify docker version
+
+4. Pull Docker image: 
+
+	docker pull anshuldhuryani/dummy-app:DummyApp
+
+5. Verify Docker image:
+
+	docker image:
+	
+6. Run Docker Image:
+
+	docker run anshuldhuryani/dummy-app:DummyApp
+
+
+
+
